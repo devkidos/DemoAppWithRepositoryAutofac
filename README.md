@@ -6,3 +6,4 @@ Solution Includes
 2. Service Layer
 3. Dependency Injection using Autofac
 4. API web project
+5. Test Project
