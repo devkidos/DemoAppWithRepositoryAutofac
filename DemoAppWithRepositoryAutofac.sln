@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Data", "DemoAppWithRepositoryAutofac.Data\DemoAppWithRepositoryAutofac.Data.csproj", "{C6094CDF-54A0-4BB7-8788-652F3C76DBB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Services", "DemoAppWithRepositoryAutofac.Services\DemoAppWithRepositoryAutofac.Services.csproj", "{F35028C2-531B-4B1B-B219-1621C851BC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.API", "DemoAppWithRepositoryAutofac.API\DemoAppWithRepositoryAutofac.API.csproj", "{8435E3AD-BDCD-4EB5-ACBE-CB25C6930757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Tests", "DemoAppWithRepositoryAutofac.Tests\DemoAppWithRepositoryAutofac.Tests.csproj", "{F3E589F8-E7CA-4DB9-BDAA-F63CA9D73DDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Core", "DemoAppWithRepositoryAutofac.Core\DemoAppWithRepositoryAutofac.Core.csproj", "{DE1C4422-C784-459B-8414-096893F2932C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6094CDF-54A0-4BB7-8788-652F3C76DBB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6094CDF-54A0-4BB7-8788-652F3C76DBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6094CDF-54A0-4BB7-8788-652F3C76DBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6094CDF-54A0-4BB7-8788-652F3C76DBB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F35028C2-531B-4B1B-B219-1621C851BC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35028C2-531B-4B1B-B219-1621C851BC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35028C2-531B-4B1B-B219-1621C851BC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35028C2-531B-4B1B-B219-1621C851BC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8435E3AD-BDCD-4EB5-ACBE-CB25C6930757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8435E3AD-BDCD-4EB5-ACBE-CB25C6930757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8435E3AD-BDCD-4EB5-ACBE-CB25C6930757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8435E3AD-BDCD-4EB5-ACBE-CB25C6930757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3E589F8-E7CA-4DB9-BDAA-F63CA9D73DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E589F8-E7CA-4DB9-BDAA-F63CA9D73DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E589F8-E7CA-4DB9-BDAA-F63CA9D73DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E589F8-E7CA-4DB9-BDAA-F63CA9D73DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1C4422-C784-459B-8414-096893F2932C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1C4422-C784-459B-8414-096893F2932C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1C4422-C784-459B-8414-096893F2932C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1C4422-C784-459B-8414-096893F2932C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {673944F4-0150-4BBD-BD8F-2C893308EDC8}
+	EndGlobalSection
+EndGlobal
