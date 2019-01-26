@@ -9,10 +9,11 @@ namespace DemoAppWithRepositoryAutofac.Data
 {
     public interface IDataRepository<TEntity> where TEntity : BaseEntity
     {
+        IEnumerable<TEntity> RetrieveAllRecordsAsync();
         TEntity GetById(object id); 
         void Insert(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity); 
-        IQueryable<TEntity> Table { get; }
+        //IQueryable<TEntity> Table { get; }
     }
 }

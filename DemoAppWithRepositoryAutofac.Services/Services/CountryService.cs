@@ -23,9 +23,10 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             countryRepository.Delete(user);
         }
 
-        public IQueryable<Country> GetCountries()
+        public IEnumerable<Country> GetCountries()
         {
-            return countryRepository.Table;
+            //throw new NotImplementedException(); //return countryRepository.Table;
+            return countryRepository.RetrieveAllRecordsAsync();
         }
 
         public Country GetCountry(Guid id)

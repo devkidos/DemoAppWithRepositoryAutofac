@@ -9,7 +9,7 @@ namespace DemoAppWithRepositoryAutofac.Services.Contracts
 {
     public interface ICountryService
     {
-        IQueryable<Country> GetCountries();
+        IEnumerable<Country> GetCountries();
         Country GetCountry(Guid id);
         void InsertCountry(Country user);
         void UpdateCountry(Country user);

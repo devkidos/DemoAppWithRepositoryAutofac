@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoAppWithRepositoryAutofac.Data
 {
-    public class DemoAppWithRepositoryAutofacDataContext : DbContext, IDbContext
+    public class DemoAppWithRepositoryAutofacDataContext : DbContext//, IDbContext
     {
         public DemoAppWithRepositoryAutofacDataContext()
             : base("DbConnectionString")
@@ -16,9 +16,15 @@ namespace DemoAppWithRepositoryAutofac.Data
              
         }
 
-        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        public DbSet<Country> Countries
         {
-            return base.Set<TEntity>();
+            get;
+            set;
         }
+ 
+        //public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        //{
+        //    return base.Set<TEntity>();
+        //}
     }
 }

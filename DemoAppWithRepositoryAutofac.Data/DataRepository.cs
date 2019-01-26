@@ -103,7 +103,12 @@ namespace DemoAppWithRepositoryAutofac.Data
                 }
             
         }
-         
+
+        public IEnumerable<TEntity> RetrieveAllRecordsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(TEntity entity)
         {
             

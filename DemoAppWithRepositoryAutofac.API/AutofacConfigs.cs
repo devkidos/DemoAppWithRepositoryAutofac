@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using DemoAppWithRepositoryAutofac.Data;
+using DemoAppWithRepositoryAutofac.Data.Contracts;
+using DemoAppWithRepositoryAutofac.Data.Repositories;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.Services.Services;
 using System;
@@ -23,8 +25,10 @@ namespace DemoAppWithRepositoryAutofac.API
             builder.RegisterType<CountryService>().As<ICountryService>();
 
             //Add data mapping
-            builder.RegisterGeneric(typeof(DataRepository<>)).As(typeof(IDataRepository<>)).InstancePerDependency();
-            
+            //builder.RegisterGeneric(typeof(DataRepository<>)).As(typeof(IDataRepository<>)).InstancePerDependency();
+            builder.RegisterType<CountryRepository>().As<ICountryRepository>();
+
+
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
