@@ -67,7 +67,8 @@ namespace DemoAppWithRepositoryAutofac.API.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             // kernel.Bind<DemoAppWithRepositoryAutofacDataContext>();
-            kernel.Bind<IDataRepository<Country>>().To<CountryRepository>(); 
+            kernel.Bind<IDataRepository<Country>>().To<CountryRepository>();
+            kernel.Bind<ICountryRepository>().To<CountryRepository>();
             kernel.Bind<ICountryService>().To<CountryService>();
         }
     }

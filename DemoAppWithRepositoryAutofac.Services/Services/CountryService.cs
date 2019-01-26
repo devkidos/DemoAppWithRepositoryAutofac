@@ -13,10 +13,12 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
     public class CountryService : ICountryService
     {
         private IDataRepository<Country>  countryRepository;
+        private ICountryRepository  ccountryRepository;
 
-        public CountryService(IDataRepository<Country> countryRepository)
+        public CountryService(IDataRepository<Country> countryRepository, ICountryRepository ccountryRepository)
         {
             this.countryRepository = countryRepository;
+            this.ccountryRepository = ccountryRepository;
         }
 
         public void DeleteCountry(Country user)
@@ -25,10 +27,9 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
         }
 
         public IEnumerable<Country> GetCountries()
-        {
-            //throw new NotImplementedException(); //return countryRepository.Table;
-            return countryRepository.RetrieveAllRecordsAsync();
-           // return new List<Country>();
+        { 
+            return ccountryRepository.Search();  //Custom method
+           // return countryRepository.RetrieveAllRecordsAsync();  //Generic Method 
         }
 
         public Country GetCountry(Guid id)

@@ -39,6 +39,11 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
             return this.dataContext.Countries.ToList();
         }
 
+        public IEnumerable<Country> Search()
+        {
+            return this.dataContext.Countries.Where(a=>a.CountryName.Contains("u"));
+        }
+
         public void Update(Country entity)
         {
             throw new NotImplementedException();
