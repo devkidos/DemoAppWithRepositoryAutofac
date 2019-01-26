@@ -9,5 +9,6 @@ namespace DemoAppWithRepositoryAutofac.Data.Contracts
 {
     public interface ICountryRepository : IDataRepository<Country>
     {
+        IEnumerable<Country> RetrieveAllRecordsAsync();
     }
 }

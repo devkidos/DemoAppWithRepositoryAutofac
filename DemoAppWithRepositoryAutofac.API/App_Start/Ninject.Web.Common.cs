@@ -4,7 +4,8 @@
 namespace DemoAppWithRepositoryAutofac.API.App_Start
 {
     using System;
-    using System.Web; 
+    using System.Web;
+    using DemoAppWithRepositoryAutofac.Core;
     using DemoAppWithRepositoryAutofac.Data;
     using DemoAppWithRepositoryAutofac.Data.Contracts;
     using DemoAppWithRepositoryAutofac.Data.Repositories;
@@ -64,10 +65,10 @@ namespace DemoAppWithRepositoryAutofac.API.App_Start
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
-        { 
-            kernel.Bind<IDbContext>().To<DemoAppWithRepositoryAutofacDataContext>();
-            kernel.Bind<ICountryRepository>().To<CountryRepository>();
+        {
+            // kernel.Bind<DemoAppWithRepositoryAutofacDataContext>();
+            kernel.Bind<IDataRepository<Country>>().To<CountryRepository>(); 
             kernel.Bind<ICountryService>().To<CountryService>();
-        }        
+        }
     }
 }

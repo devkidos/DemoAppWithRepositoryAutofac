@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DemoAppWithRepositoryAutofac.Data
 {
-    public class DemoAppWithRepositoryAutofacDataContext : DbContext, IDbContext
+    public class DemoAppWithRepositoryAutofacDataContext : DbContext//, IDbContext
     {
         public DemoAppWithRepositoryAutofacDataContext()
             : base("DbConnectionString")
         {
              
         }
-
+        
         public DbSet<Country> Countries
         {
             get;

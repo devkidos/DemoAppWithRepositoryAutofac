@@ -18,7 +18,7 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         {
             this.dataContext = context;
         }
-         
+
         public void Delete(Country entity)
         {
             throw new NotImplementedException();

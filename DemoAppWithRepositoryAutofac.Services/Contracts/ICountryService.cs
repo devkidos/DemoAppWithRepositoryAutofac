@@ -13,6 +13,6 @@ namespace DemoAppWithRepositoryAutofac.Services.Contracts
         Country GetCountry(Guid id);
         void InsertCountry(Country user);
         void UpdateCountry(Country user);
-        void DeleteCountry(Country user);
+        void DeleteCountry(Country user); 
     }
 }
