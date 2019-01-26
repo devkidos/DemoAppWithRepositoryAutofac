@@ -11,10 +11,7 @@ namespace DemoAppWithRepositoryAutofac.API.Controllers
 {
     public class CountryController : ApiController
     {
-        public CountryController()
-        {
-
-        }
+        
         ICountryService countryService;
         public CountryController(ICountryService _countryService)
         {

@@ -11,8 +11,7 @@ namespace DemoAppWithRepositoryAutofac.API
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            AutofacConfigs.Configure();
+            GlobalConfiguration.Configure(WebApiConfig.Register); 
         }
     }
 }

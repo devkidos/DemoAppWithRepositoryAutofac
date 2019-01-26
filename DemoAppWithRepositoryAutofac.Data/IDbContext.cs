@@ -10,7 +10,7 @@ namespace DemoAppWithRepositoryAutofac.Data
 {
     public interface IDbContext
     {
-        IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
-        int SaveChanges();
+        //IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
+        //int SaveChanges();
     }
 }
