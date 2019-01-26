@@ -15,7 +15,11 @@ namespace DemoAppWithRepositoryAutofac.Data
         {
              
         }
-        
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<DemoAppWithRepositoryAutofacDataContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<Country> Countries
         {
             get;

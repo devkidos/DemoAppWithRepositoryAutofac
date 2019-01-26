@@ -53,6 +53,11 @@
     <Compile Include="DemoAppWithRepositoryAutofacDataContext.cs" />
     <Compile Include="IDataRepository.cs" />
     <Compile Include="IDbContext.cs" />
+    <Compile Include="Migrations\201901262153438_DemoMigraton.cs" />
+    <Compile Include="Migrations\201901262153438_DemoMigraton.Designer.cs">
+      <DependentUpon>201901262153438_DemoMigraton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CountryRepository.cs" />
   </ItemGroup>
@@ -60,7 +65,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901262153438_DemoMigraton.resx">
+      <DependentUpon>201901262153438_DemoMigraton.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DemoAppWithRepositoryAutofac.Core\DemoAppWithRepositoryAutofac.Core.csproj">
       <Project>{DE1C4422-C784-459B-8414-096893F2932C}</Project>
