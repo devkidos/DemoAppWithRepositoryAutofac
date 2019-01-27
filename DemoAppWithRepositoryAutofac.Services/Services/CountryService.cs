@@ -2,6 +2,7 @@
 using DemoAppWithRepositoryAutofac.Data;
 using DemoAppWithRepositoryAutofac.Data.Contracts;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
+using DemoAppWithRepositoryAutofac.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,13 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
            // countryRepository.Delete(user);
         }
 
-        public IEnumerable<Country> GetCountries()
+        public IEnumerable<VMCountry> GetCountries()
         { 
-            return ccountryRepository.Search();  //Custom method
-           // return countryRepository.RetrieveAllRecordsAsync();  //Generic Method 
+            var data =  ccountryRepository.Search();  //Custom method
+            // return countryRepository.RetrieveAllRecordsAsync();  //Generic Method 
+
+            var datas = AutoMapper.Mapper.Map<IEnumerable<Country>, IEnumerable<VMCountry>>(data);
+            return datas;
         }
 
         public Country GetCountry(Guid id)

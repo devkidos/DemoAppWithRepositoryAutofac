@@ -163,6 +163,10 @@
       <Project>{F35028C2-531B-4B1B-B219-1621C851BC84}</Project>
       <Name>DemoAppWithRepositoryAutofac.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DemoAppWithRepositoryAutofac.ViewModel\DemoAppWithRepositoryAutofac.ViewModel.csproj">
+      <Project>{46ef77f3-1edb-4660-998c-0fe657d0df09}</Project>
+      <Name>DemoAppWithRepositoryAutofac.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

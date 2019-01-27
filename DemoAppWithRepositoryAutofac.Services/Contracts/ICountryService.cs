@@ -1,4 +1,5 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
+using DemoAppWithRepositoryAutofac.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DemoAppWithRepositoryAutofac.Services.Contracts
 {
     public interface ICountryService
     {
-        IEnumerable<Country> GetCountries();
+        IEnumerable<VMCountry> GetCountries();
         Country GetCountry(Guid id);
         void InsertCountry(Country user);
         void UpdateCountry(Country user);
