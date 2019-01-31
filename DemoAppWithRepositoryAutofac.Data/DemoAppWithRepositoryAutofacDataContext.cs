@@ -20,12 +20,10 @@ namespace DemoAppWithRepositoryAutofac.Data
             Database.SetInitializer<DemoAppWithRepositoryAutofacDataContext>(null);
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Country> Countries
-        {
-            get;
-            set;
-        }
- 
+        public DbSet<Country> Countries{ get; set; }
+
+        public DbSet<User> Users { get; set; }
+
         //public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         //{
         //    return base.Set<TEntity>();

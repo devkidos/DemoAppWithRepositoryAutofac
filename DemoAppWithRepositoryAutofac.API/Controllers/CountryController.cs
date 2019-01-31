@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace DemoAppWithRepositoryAutofac.API.Controllers
 {
+   [Authorize]
     public class CountryController : ApiController
     {
         

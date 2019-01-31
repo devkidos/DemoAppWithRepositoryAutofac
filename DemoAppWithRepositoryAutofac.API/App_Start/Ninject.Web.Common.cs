@@ -69,7 +69,9 @@ namespace DemoAppWithRepositoryAutofac.API.App_Start
             // kernel.Bind<DemoAppWithRepositoryAutofacDataContext>();
             kernel.Bind<IDataRepository<Country>>().To<CountryRepository>();
             kernel.Bind<ICountryRepository>().To<CountryRepository>();
+            kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<ICountryService>().To<CountryService>();
+            kernel.Bind<IUserService>().To<UserService>();
         }
     }
 }

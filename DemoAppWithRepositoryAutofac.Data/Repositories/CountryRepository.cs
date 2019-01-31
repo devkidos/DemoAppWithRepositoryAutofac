@@ -41,7 +41,7 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
 
         public IEnumerable<Country> Search()
         {
-            return this.dataContext.Countries.Where(a=>a.CountryName.Contains("u")).ToList();
+            return this.dataContext.Countries.Where(a=>a.CountryName.ToLower().Contains("u")).ToList();
         }
 
         public void Update(Country entity)

@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace DemoAppWithRepositoryAutofac.Core
 {
-    public class Country : BaseEntity
+    public class State : BaseEntity
     {
+        public Guid StateId { get; set; }
+
         public Guid CountryId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string CountryName { get; set; }
+        public string StateName { get; set; }
 
         [StringLength(5)]
-        public string CountryCode { get; set; }
+        public string StateCode { get; set; }
 
-        [StringLength(7)]
-        public string CountryPhoneCode { get; set; }
+        public virtual ICollection<City> Cities { get; set; }
 
-        public virtual ICollection<State> States { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

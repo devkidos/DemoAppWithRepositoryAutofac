@@ -8,12 +8,8 @@ using System.Threading.Tasks;
 
 namespace DemoAppWithRepositoryAutofac.Services.Contracts
 {
-    public interface ICountryService
+    public interface ICountryService : IService<VMCountry>
     {
         IEnumerable<VMCountry> GetCountries();
-        Country GetCountry(Guid id);
-        void InsertCountry(Country user);
-        void UpdateCountry(Country user);
-        void DeleteCountry(Country user); 
     }
 }

@@ -18,6 +18,8 @@ namespace DemoAppWithRepositoryAutofac.Services
             {
                 cfg.CreateMap<VMCountry, Country>();
                 cfg.CreateMap<Country, VMCountry>();
+                 
+                cfg.CreateMap<User, VMLogin>();
             });
 
         }

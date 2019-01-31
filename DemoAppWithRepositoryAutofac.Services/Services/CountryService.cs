@@ -22,9 +22,25 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             this.ccountryRepository = ccountryRepository;
         }
 
-        public void DeleteCountry(Country user)
+        public void Delete(VMCountry entity)
         {
-           // countryRepository.Delete(user);
+            throw new NotImplementedException();
+            // countryRepository.Delete(user);
+        }
+ 
+
+        public IEnumerable<VMCountry> GetAllRecords()
+        {
+            //var data = ccountryRepository.Search();  //Custom method
+            var data= countryRepository.RetrieveAllRecordsAsync();  //Generic Method 
+
+            var datas = AutoMapper.Mapper.Map<IEnumerable<Country>, IEnumerable<VMCountry>>(data);
+            return datas;
+        }
+
+        public VMCountry GetById(object id)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<VMCountry> GetCountries()
@@ -42,9 +58,19 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             return new Country();
         }
 
+        public void Insert(VMCountry entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void InsertCountry(Country user)
         {
            // countryRepository.Insert(user);
+        }
+
+        public void Update(VMCountry entity)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateCountry(Country user)
