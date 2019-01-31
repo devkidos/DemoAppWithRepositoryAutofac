@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DemoAppWithRepositoryAutofac.Core;
+using DemoAppWithRepositoryAutofac.Data.Repositories;
 using DemoAppWithRepositoryAutofac.ViewModel;
 
 namespace DemoAppWithRepositoryAutofac.Services.Services
@@ -12,7 +13,9 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
     {
         public static VMLogin LoginByUsernamePassword(string Username, string Password)
         {
-            return new VMLogin { UserId = Guid.NewGuid(), Username = "Demo" };
+            var data = UserRepository.LoginUser(Username, Password);
+            var datas = AutoMapper.Mapper.Map<User, VMLogin>(data);
+            return datas;
         }
     }
 }

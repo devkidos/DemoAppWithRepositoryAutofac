@@ -45,6 +45,14 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         public void Update(User entity)
         {
             throw new NotImplementedException();
-        } 
+        }
+        public static User LoginUser(string username, string password)
+        {
+            using (var db = new DemoAppWithRepositoryAutofacDataContext() )
+            {
+                return db.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            }
+           
+        }
     }
 }
