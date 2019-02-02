@@ -37,15 +37,7 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
         {
             throw new NotImplementedException();
         }
-
-        public VMLogin LoginByUsernamePassword(string username, string password)
-        {
-            var data = userRepository.Login(username, password);  
-
-            var datas = AutoMapper.Mapper.Map<User, VMLogin>(data);
-            return datas; 
-        }
-
+  
         public void Update(VMLogin entity)
         {
             throw new NotImplementedException();

@@ -11,11 +11,11 @@ namespace DemoAppWithRepositoryAutofac.Core
     {
         [Required]
         [StringLength(10)]
-        public string Status { get; set; }
+        public string Status { get; set; } = "Active";
         public Guid CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         public Guid UpdatedBy { get; set; }
-        public DateTime UpdatedDate { get; set; } 
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
         public string IP { get; set; }
     }
 }

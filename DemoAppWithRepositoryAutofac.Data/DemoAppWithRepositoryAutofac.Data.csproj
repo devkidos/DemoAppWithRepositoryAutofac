@@ -54,9 +54,9 @@
     <Compile Include="DemoAppWithRepositoryAutofacDataContext.cs" />
     <Compile Include="IDataRepository.cs" />
     <Compile Include="IDbContext.cs" />
-    <Compile Include="Migrations\201901262153438_DemoMigraton.cs" />
-    <Compile Include="Migrations\201901262153438_DemoMigraton.Designer.cs">
-      <DependentUpon>201901262153438_DemoMigraton.cs</DependentUpon>
+    <Compile Include="Migrations\201902021657087_addition.cs" />
+    <Compile Include="Migrations\201902021657087_addition.Designer.cs">
+      <DependentUpon>201902021657087_addition.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,15 +68,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901262153438_DemoMigraton.resx">
-      <DependentUpon>201901262153438_DemoMigraton.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DemoAppWithRepositoryAutofac.Core\DemoAppWithRepositoryAutofac.Core.csproj">
       <Project>{DE1C4422-C784-459B-8414-096893F2932C}</Project>
       <Name>DemoAppWithRepositoryAutofac.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902021657087_addition.resx">
+      <DependentUpon>201902021657087_addition.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

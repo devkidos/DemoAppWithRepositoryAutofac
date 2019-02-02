@@ -31,12 +31,7 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public User Login(string username, string password)
-        {
-            return this.dataContext.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-        }
-
+  
         public IEnumerable<User> RetrieveAllRecordsAsync()
         {
             throw new NotImplementedException();
@@ -48,11 +43,10 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         }
         public static User LoginUser(string username, string password)
         {
-            using (var db = new DemoAppWithRepositoryAutofacDataContext() )
+            using (var db = new DemoAppWithRepositoryAutofacDataContext())
             {
                 return db.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-            }
-           
+            } 
         }
     }
 }

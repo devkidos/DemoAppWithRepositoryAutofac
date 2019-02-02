@@ -60,12 +60,14 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
 
         public void Insert(VMCountry entity)
         {
-            throw new NotImplementedException();
+            entity.CountryId = Guid.NewGuid();
+            var data = AutoMapper.Mapper.Map<VMCountry,Country>(entity);
+            countryRepository.Insert(data);
         }
 
         public void InsertCountry(Country user)
         {
-           // countryRepository.Insert(user);
+            countryRepository.Insert(user);
         }
 
         public void Update(VMCountry entity)

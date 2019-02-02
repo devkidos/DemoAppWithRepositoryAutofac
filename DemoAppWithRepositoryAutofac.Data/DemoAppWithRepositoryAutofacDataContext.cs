@@ -20,7 +20,7 @@ namespace DemoAppWithRepositoryAutofac.Data
             Database.SetInitializer<DemoAppWithRepositoryAutofacDataContext>(null);
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Country> Countries{ get; set; }
+        public DbSet<Country> Country{ get; set; }
 
         public DbSet<User> Users { get; set; }
 

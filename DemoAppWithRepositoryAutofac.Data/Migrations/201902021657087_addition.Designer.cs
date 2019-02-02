@@ -7,13 +7,13 @@ namespace DemoAppWithRepositoryAutofac.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DemoMigraton : IMigrationMetadata
+    public sealed partial class addition : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DemoMigraton));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addition));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901262153438_DemoMigraton"; }
+            get { return "201902021657087_addition"; }
         }
         
         string IMigrationMetadata.Source

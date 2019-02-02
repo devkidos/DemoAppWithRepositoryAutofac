@@ -9,6 +9,6 @@ namespace DemoAppWithRepositoryAutofac.Data.Contracts
 {
     public interface IUserRepository : IDataRepository<User>
     {
-        User Login(string username, string password);
+        
     }
 }

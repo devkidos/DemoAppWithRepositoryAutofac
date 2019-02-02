@@ -31,17 +31,18 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
 
         public void Insert(Country entity)
         {
-            throw new NotImplementedException();
+            this.dataContext.Country.Add(entity);
+            this.dataContext.SaveChanges();
         }
 
         public IEnumerable<Country> RetrieveAllRecordsAsync()
         {
-            return this.dataContext.Countries.ToList();
+            return this.dataContext.Country.ToList();
         }
 
         public IEnumerable<Country> Search()
         {
-            return this.dataContext.Countries.Where(a=>a.CountryName.ToLower().Contains("u")).ToList();
+            return this.dataContext.Country.Where(a=>a.CountryName.ToLower().Contains("u")).ToList();
         }
 
         public void Update(Country entity)

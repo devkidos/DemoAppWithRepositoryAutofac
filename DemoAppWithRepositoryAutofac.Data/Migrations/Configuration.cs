@@ -5,14 +5,14 @@ namespace DemoAppWithRepositoryAutofac.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DemoAppWithRepositoryAutofacDataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DemoAppWithRepositoryAutofac.Data.DemoAppWithRepositoryAutofacDataContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DemoAppWithRepositoryAutofacDataContext context)
+        protected override void Seed(DemoAppWithRepositoryAutofac.Data.DemoAppWithRepositoryAutofacDataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

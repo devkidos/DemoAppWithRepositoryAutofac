@@ -1,5 +1,6 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
+using DemoAppWithRepositoryAutofac.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,15 @@ namespace DemoAppWithRepositoryAutofac.API.Controllers
         [Route("countries")]
         public HttpResponseMessage GetCountries()
         {
-            var employees = countryService.GetCountries();
-            return Request.CreateResponse(HttpStatusCode.OK, employees);
+            var countries = countryService.GetCountries();
+            return Request.CreateResponse(HttpStatusCode.OK, countries);
+        }
+
+        [HttpPost] 
+        public HttpResponseMessage Post(VMCountry vMCountry)
+        {
+            countryService.Insert(vMCountry);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }
