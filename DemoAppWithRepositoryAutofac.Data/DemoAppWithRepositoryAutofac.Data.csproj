@@ -72,6 +72,10 @@
       <Project>{DE1C4422-C784-459B-8414-096893F2932C}</Project>
       <Name>DemoAppWithRepositoryAutofac.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DemoAppWithRepositoryAutofac.ViewModel\DemoAppWithRepositoryAutofac.ViewModel.csproj">
+      <Project>{46EF77F3-1EDB-4660-998C-0FE657D0DF09}</Project>
+      <Name>DemoAppWithRepositoryAutofac.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902021657087_addition.resx">

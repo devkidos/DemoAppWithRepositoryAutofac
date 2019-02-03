@@ -1,5 +1,6 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
 using DemoAppWithRepositoryAutofac.Data.Contracts;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -35,14 +36,15 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
             this.dataContext.SaveChanges();
         }
 
-        public IEnumerable<Country> RetrieveAllRecordsAsync()
+        public IEnumerable<Country> RetrieveAllRecordsAsync(ApiRequest apiRequest)
         {
-            return this.dataContext.Country.ToList();
+            return this.dataContext.Country.OrderBy(o => o.CountryName).Skip(apiRequest.PageNumber * apiRequest.PageSize).Take(apiRequest.PageSize).ToList();
         }
 
         public IEnumerable<Country> Search()
         {
-            return this.dataContext.Country.Where(a=>a.CountryName.ToLower().Contains("u")).ToList();
+            // return this.dataContext.Country.Where(a=>a.CountryName.ToLower().Contains("u")).ToList();
+            return this.dataContext.Country.ToList();
         }
 
         public void Update(Country entity)

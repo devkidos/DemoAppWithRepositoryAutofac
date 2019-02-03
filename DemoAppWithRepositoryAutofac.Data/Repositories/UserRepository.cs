@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DemoAppWithRepositoryAutofac.Core;
 using DemoAppWithRepositoryAutofac.Data.Contracts;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 
 namespace DemoAppWithRepositoryAutofac.Data.Repositories
 {
@@ -32,7 +33,7 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
             throw new NotImplementedException();
         }
   
-        public IEnumerable<User> RetrieveAllRecordsAsync()
+        public IEnumerable<User> RetrieveAllRecordsAsync(ApiRequest apiRequest)
         {
             throw new NotImplementedException();
         }

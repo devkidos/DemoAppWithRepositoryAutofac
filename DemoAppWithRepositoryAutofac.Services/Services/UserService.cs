@@ -7,6 +7,7 @@ using DemoAppWithRepositoryAutofac.Core;
 using DemoAppWithRepositoryAutofac.Data.Contracts;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.ViewModel;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 
 namespace DemoAppWithRepositoryAutofac.Services.Services
 {
@@ -23,7 +24,7 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<VMLogin> GetAllRecords()
+        public IEnumerable<VMLogin> GetAllRecords(ApiRequest apiRequest)
         {
             throw new NotImplementedException();
         }

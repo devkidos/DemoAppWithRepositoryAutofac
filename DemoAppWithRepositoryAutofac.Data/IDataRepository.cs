@@ -1,4 +1,5 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DemoAppWithRepositoryAutofac.Data
 {
     public interface IDataRepository<TEntity> where TEntity : BaseEntity
     {
-        IEnumerable<TEntity> RetrieveAllRecordsAsync();
+        IEnumerable<TEntity> RetrieveAllRecordsAsync(ApiRequest apiRequest);
         TEntity GetById(object id);
         void Insert(TEntity entity);
         void Update(TEntity entity);

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\ApiRequest.cs" />
     <Compile Include="VMCountry.cs" />
     <Compile Include="VMLogin.cs" />
   </ItemGroup>

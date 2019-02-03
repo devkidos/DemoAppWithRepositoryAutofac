@@ -1,4 +1,5 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -150,7 +151,7 @@ namespace DemoAppWithRepositoryAutofac.Data
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> RetrieveAllRecordsAsync()
+        public IEnumerable<TEntity> RetrieveAllRecordsAsync(ApiRequest apiRequest)
         {
             throw new NotImplementedException();
         }

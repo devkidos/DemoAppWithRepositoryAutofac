@@ -3,6 +3,7 @@ using DemoAppWithRepositoryAutofac.Data;
 using DemoAppWithRepositoryAutofac.Data.Contracts;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.ViewModel;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,10 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
         }
  
 
-        public IEnumerable<VMCountry> GetAllRecords()
+        public IEnumerable<VMCountry> GetAllRecords(ApiRequest apiRequest)
         {
             //var data = ccountryRepository.Search();  //Custom method
-            var data= countryRepository.RetrieveAllRecordsAsync();  //Generic Method 
+            var data= countryRepository.RetrieveAllRecordsAsync(apiRequest);  //Generic Method 
 
             var datas = AutoMapper.Mapper.Map<IEnumerable<Country>, IEnumerable<VMCountry>>(data);
             return datas;
@@ -43,10 +44,10 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<VMCountry> GetCountries()
+        public IEnumerable<VMCountry> GetCountries(ApiRequest apiRequest)
         { 
-            var data =  ccountryRepository.Search();  //Custom method
-            // return countryRepository.RetrieveAllRecordsAsync();  //Generic Method 
+            // var data =  ccountryRepository.Search();  //Custom method
+            var data =  countryRepository.RetrieveAllRecordsAsync(apiRequest);  //Generic Method 
 
             var datas = AutoMapper.Mapper.Map<IEnumerable<Country>, IEnumerable<VMCountry>>(data);
             return datas;

@@ -1,6 +1,7 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.ViewModel;
+using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,9 @@ namespace DemoAppWithRepositoryAutofac.API.Controllers
 
         [HttpGet]
         [Route("countries")]
-        public HttpResponseMessage GetCountries()
+        public HttpResponseMessage GetCountries(ApiRequest apiRequest)
         {
-            var countries = countryService.GetCountries();
+            var countries = countryService.GetCountries(apiRequest);
             return Request.CreateResponse(HttpStatusCode.OK, countries);
         }
 
