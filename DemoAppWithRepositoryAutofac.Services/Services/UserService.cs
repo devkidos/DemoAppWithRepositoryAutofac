@@ -8,6 +8,7 @@ using DemoAppWithRepositoryAutofac.Data.Contracts;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
+using DemoAppWithRepositoryAutofac.ViewModel.Response;
 
 namespace DemoAppWithRepositoryAutofac.Services.Services
 {
@@ -34,11 +35,11 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             throw new NotImplementedException();
         }
 
-        public void Insert(VMLogin entity)
+        public Response<VMLogin> Insert(VMLogin entity)
         {
             throw new NotImplementedException();
         }
-  
+
         public void Update(VMLogin entity)
         {
             throw new NotImplementedException();

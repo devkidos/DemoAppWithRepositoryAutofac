@@ -27,12 +27,7 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public void Insert(User entity)
-        {
-            throw new NotImplementedException();
-        }
-  
+         
         public IEnumerable<User> RetrieveAllRecordsAsync(ApiRequest apiRequest)
         {
             throw new NotImplementedException();
@@ -48,6 +43,11 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
             {
                 return db.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
             } 
+        }
+
+        public User Insert(User entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

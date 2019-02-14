@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
+using DemoAppWithRepositoryAutofac.ViewModel.Response;
 
 namespace DemoAppWithRepositoryAutofac.Services.Contracts
 {
@@ -11,7 +12,7 @@ namespace DemoAppWithRepositoryAutofac.Services.Contracts
     {
         IEnumerable<TEntity> GetAllRecords(ApiRequest apiRequest);
         TEntity GetById(object id);
-        void Insert(TEntity entity);
+        Response<TEntity> Insert(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
     }

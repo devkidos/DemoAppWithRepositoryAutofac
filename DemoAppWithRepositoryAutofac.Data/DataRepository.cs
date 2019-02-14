@@ -146,7 +146,7 @@ namespace DemoAppWithRepositoryAutofac.Data
             throw new NotImplementedException();
         }
 
-        public void Insert(TEntity entity)
+        public TEntity Insert(TEntity entity)
         {
             throw new NotImplementedException();
         }

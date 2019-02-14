@@ -4,6 +4,7 @@ using DemoAppWithRepositoryAutofac.Data.Contracts;
 using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
+using DemoAppWithRepositoryAutofac.ViewModel.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,11 +60,26 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             return new Country();
         }
 
-        public void Insert(VMCountry entity)
+        public Response<VMCountry> Insert(VMCountry entity)
         {
-            entity.CountryId = Guid.NewGuid();
-            var data = AutoMapper.Mapper.Map<VMCountry,Country>(entity);
-            countryRepository.Insert(data);
+            Response<VMCountry> response = new Response<VMCountry>();
+            try
+            {
+                entity.CountryId = Guid.NewGuid();
+                var model = AutoMapper.Mapper.Map<VMCountry, Country>(entity);
+                var data = countryRepository.Insert(model);
+                if (data != null)
+                {
+                    response.Code = "success";
+                    response.Data = entity;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "fail";
+                response.Message = ex.Message;
+            } 
+            return response;
         }
 
         public void InsertCountry(Country user)

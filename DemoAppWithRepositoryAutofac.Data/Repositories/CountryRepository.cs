@@ -30,10 +30,15 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public void Insert(Country entity)
+        public Country Insert(Country entity)
         {
             this.dataContext.Country.Add(entity);
-            this.dataContext.SaveChanges();
+            var returnValue = this.dataContext.SaveChanges();
+            if(returnValue >0)
+            {
+                return entity;
+            }
+            return new Country();
         }
 
         public IEnumerable<Country> RetrieveAllRecordsAsync(ApiRequest apiRequest)
@@ -53,5 +58,6 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         {
             throw new NotImplementedException();
         }
+ 
     }
 }

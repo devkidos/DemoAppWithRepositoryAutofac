@@ -12,7 +12,7 @@ namespace DemoAppWithRepositoryAutofac.Data
     {
         IEnumerable<TEntity> RetrieveAllRecordsAsync(ApiRequest apiRequest);
         TEntity GetById(object id);
-        void Insert(TEntity entity);
+        TEntity Insert(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
         //IQueryable<TEntity> Table { get; }

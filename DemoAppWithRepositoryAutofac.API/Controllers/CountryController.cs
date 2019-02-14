@@ -13,8 +13,7 @@ namespace DemoAppWithRepositoryAutofac.API.Controllers
 {
    [Authorize]
     public class CountryController : ApiController
-    {
-        
+    { 
         ICountryService countryService;
         public CountryController(ICountryService _countryService)
         {
@@ -32,8 +31,8 @@ namespace DemoAppWithRepositoryAutofac.API.Controllers
         [HttpPost] 
         public HttpResponseMessage Post(VMCountry vMCountry)
         {
-            countryService.Insert(vMCountry);
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var response = countryService.Insert(vMCountry);
+            return Request.CreateResponse(response);
         }
     }
 }
