@@ -1,7 +1,30 @@
-﻿
+﻿@model IEnumerable<DemoAppWithRepositoryAutofac.ViewModel.VMCountry>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">CountryCode</th>
+            <th scope="col">CountryName</th>
+            <th scope="col">CountryName</th>
+            <th scope="col">CountryName</th>
+        </tr>
+    </thead>
+    <tbody> 
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.CountryCode</th>
+            <td>@item.CountryName</td>
+            <td>@item.CountryId</td>
+            <td>@item.CountryPhoneCode</td>
+        </tr>
+        }
+    </tbody>
+</table>
+      
+  

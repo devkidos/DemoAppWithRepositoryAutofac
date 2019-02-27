@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
+using Newtonsoft.Json;
 
 namespace DemoAppWithRepositoryAutofac.Web.Controllers
 {
@@ -16,7 +17,7 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
         public ActionResult Index()
         {
             var data = SearchCountries("");
-            return View();
+            return View(data);
         }
 
         private static List<VMCountry> SearchCountries(string name)
@@ -28,7 +29,7 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
                 PageSize= 10,
                 Search= ""
             };
-            string inputJson = (new JavaScriptSerializer()).Serialize(input);
+            string inputJson = JsonConvert.SerializeObject(input);// (new JavaScriptSerializer()).Serialize(input);
             WebClient client = new WebClient();
             client.Headers["Content-type"] = "application/json";
             client.Encoding = Encoding.UTF8;
