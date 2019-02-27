@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofa
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DemoAppWithRepositoryAutofac.DataBase", "DemoAppWithRepositoryAutofac.DataBase\DemoAppWithRepositoryAutofac.DataBase.sqlproj", "{4CBCC611-5057-4AC4-BCCA-6D0057EE071E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Web", "DemoAppWithRepositoryAutofac.Web\DemoAppWithRepositoryAutofac.Web.csproj", "{B3B1E73F-97DB-4564-B1C4-D811D517428D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{4CBCC611-5057-4AC4-BCCA-6D0057EE071E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CBCC611-5057-4AC4-BCCA-6D0057EE071E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4CBCC611-5057-4AC4-BCCA-6D0057EE071E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

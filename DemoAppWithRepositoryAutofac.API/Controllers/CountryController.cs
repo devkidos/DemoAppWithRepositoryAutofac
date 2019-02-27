@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace DemoAppWithRepositoryAutofac.API.Controllers
 {
-   [Authorize]
+   //[Authorize]
     public class CountryController : ApiController
     { 
         ICountryService countryService;
@@ -20,7 +20,7 @@ namespace DemoAppWithRepositoryAutofac.API.Controllers
             countryService = _countryService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("countries")]
         public HttpResponseMessage GetCountries(ApiRequest apiRequest)
         {
