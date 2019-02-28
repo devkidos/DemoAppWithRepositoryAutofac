@@ -34,18 +34,9 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
         }
 
         private List<VMCountry> SearchCountries(ExpandoObject dynamicObject)
-        {
-            string apiUrl = "http://localhost/DemoAppWithRepositoryAutofac.API/";
-
-
-            var rersult = httpClientService.Post<List<VMCountry>>(apiUrl, dynamicObject,  null);
-
-            //string inputJson = JsonConvert.SerializeObject(dynamicObject);// (new JavaScriptSerializer()).Serialize(input);
-            //WebClient client = new WebClient();
-            //client.Headers["Content-type"] = "application/json";
-            //client.Encoding = Encoding.UTF8;
-            //string json = client.UploadString(apiUrl + "countries", inputJson);
-            //List<VMCountry> countries = (new JavaScriptSerializer()).Deserialize<List<VMCountry>>(json);
+        { 
+            var rersult = httpClientService.Post<List<VMCountry>>("countries", dynamicObject,  null);
+             
             return rersult;
         }
     }

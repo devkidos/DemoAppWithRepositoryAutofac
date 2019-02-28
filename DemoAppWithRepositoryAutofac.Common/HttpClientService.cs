@@ -11,7 +11,9 @@ namespace DemoAppWithRepositoryAutofac.Common
 {
     public partial class HttpClientService : IHttpClientService
     {
-        public T Get<T>(string apiUrl, string token)
+        const string apiUrl = "http://localhost/DemoAppWithRepositoryAutofac.API/";
+
+        public T Get<T>(string apiMethod, string token)
         {
             try
             {
@@ -19,7 +21,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 {
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                    Uri uri = new Uri(apiUrl);
+                    Uri uri = new Uri(apiUrl + apiMethod);
                     HttpResponseMessage httpResponseMessage = httpClient.GetAsync(uri).Result;
                     string response = httpResponseMessage.Content.ReadAsStringAsync().Result;
 
@@ -31,7 +33,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 throw;
             }
         }
-        public T Put<T>(string apiUrl, T model, string token)
+        public T Put<T>(string apiMethod, T model, string token)
         {
             try
             {
@@ -39,7 +41,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 {
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                    Uri uri = new Uri(apiUrl);
+                    Uri uri = new Uri(apiUrl + apiMethod);
                     string jsonBody = JsonConvert.SerializeObject(model);
                     var stringContent = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
@@ -54,7 +56,7 @@ namespace DemoAppWithRepositoryAutofac.Common
             catch { throw; }
         }
 
-        public T Post<T>(string apiUrl, ExpandoObject dynamicObject, string token = null)
+        public T Post<T>(string apiMethod, ExpandoObject dynamicObject, string token = null)
         {
             try
             {
@@ -63,7 +65,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                     if(!string.IsNullOrEmpty(token))
                         httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                    Uri uri = new Uri(apiUrl);
+                    Uri uri = new Uri(apiUrl + apiMethod);
                     string jsonBody = JsonConvert.SerializeObject(dynamicObject);
                     var stringContent = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
@@ -77,7 +79,7 @@ namespace DemoAppWithRepositoryAutofac.Common
             }
             catch { throw; }
         }
-        public T PostFormUrlEncoded<T>(string url, Dictionary<string, string> httpHeaderParams)
+        public T PostFormUrlEncoded<T>(string apiMethod, Dictionary<string, string> httpHeaderParams)
         {
             using (var httpClient = new HttpClient())
             {
@@ -86,7 +88,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                     content.Headers.Clear();
                     content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
 
-                    HttpResponseMessage response = httpClient.PostAsync(url, content).Result;
+                    HttpResponseMessage response = httpClient.PostAsync(apiUrl + apiMethod, content).Result;
 
                     var responseResult = response.Content.ReadAsStringAsync().Result;
 
@@ -94,7 +96,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 }
             }
         }
-        public async Task<T> GetAsync<T>(string apiUrl, string token)
+        public async Task<T> GetAsync<T>(string apiMethod, string token)
         {
             try
             {
@@ -102,7 +104,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 {
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                    Uri uri = new Uri(apiUrl);
+                    Uri uri = new Uri(apiUrl + apiMethod);
                     HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(uri);
                     string response = await httpResponseMessage.Content.ReadAsStringAsync();
 
@@ -114,7 +116,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 throw;
             }
         }
-        public async Task<T> PutAsync<T>(string apiUrl, T model, string token)
+        public async Task<T> PutAsync<T>(string apiMethod, T model, string token)
         {
             try
             {
@@ -122,7 +124,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                 {
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                    Uri uri = new Uri(apiUrl);
+                    Uri uri = new Uri(apiUrl + apiMethod);
                     string jsonBody = JsonConvert.SerializeObject(model);
                     var stringContent = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
@@ -136,7 +138,7 @@ namespace DemoAppWithRepositoryAutofac.Common
             }
             catch { throw; }
         }
-        public async Task<T> PostAsync<T>(string apiUrl, ExpandoObject dynamicObject, string token = null)
+        public async Task<T> PostAsync<T>(string apiMethod, ExpandoObject dynamicObject, string token = null)
         {
             try
             {
@@ -145,7 +147,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                     if (!string.IsNullOrEmpty(token))
                         httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-                    Uri uri = new Uri(apiUrl);
+                    Uri uri = new Uri(apiUrl + apiMethod);
                     string jsonBody = JsonConvert.SerializeObject(dynamicObject);
                     var stringContent = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
@@ -159,7 +161,7 @@ namespace DemoAppWithRepositoryAutofac.Common
             }
             catch { throw; }
         }
-        public async Task<T> PostFormUrlEncodedAsync<T>(string url, Dictionary<string, string> httpHeaderParams)
+        public async Task<T> PostFormUrlEncodedAsync<T>(string apiMethod, Dictionary<string, string> httpHeaderParams)
         {
             using (var httpClient = new HttpClient())
             {
@@ -168,7 +170,7 @@ namespace DemoAppWithRepositoryAutofac.Common
                     content.Headers.Clear();
                     content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
 
-                    HttpResponseMessage response = await httpClient.PostAsync(url, content);
+                    HttpResponseMessage response = await httpClient.PostAsync(apiUrl + apiMethod, content);
 
                     var responseResult = await response.Content.ReadAsStringAsync();
 

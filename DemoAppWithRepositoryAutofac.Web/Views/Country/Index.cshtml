@@ -3,28 +3,38 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Country </h3>
+        @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-primary pull-right" })
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">CountryCode</th>
-            <th scope="col">CountryName</th>
-            <th scope="col">CountryName</th>
-            <th scope="col">CountryName</th>
-        </tr>
-    </thead>
-    <tbody> 
-        @foreach (var item in Model)
-        {
-        <tr>
-            <th scope="row">@item.CountryCode</th>
-            <td>@item.CountryName</td>
-            <td>@item.CountryId</td>
-            <td>@item.CountryPhoneCode</td>
-        </tr>
-        }
-    </tbody>
-</table>
-      
-  
+    <!-- /.box-header -->
+    <div class="box-body"> 
+        <table id="myTable" class="table display responsive nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th scope="col">CountryCode</th>
+                    <th scope="col">CountryName</th>
+                    <th scope="col">CountryName</th>
+                    <th scope="col">CountryName</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.CountryCode</th>
+                        <td>@item.CountryName</td>
+                        <td>@item.CountryId</td>
+                        <td>@item.CountryPhoneCode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
