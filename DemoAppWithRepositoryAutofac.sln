@@ -19,6 +19,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DemoAppWithRepositoryAutofa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Web", "DemoAppWithRepositoryAutofac.Web\DemoAppWithRepositoryAutofac.Web.csproj", "{B3B1E73F-97DB-4564-B1C4-D811D517428D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAppWithRepositoryAutofac.Common", "DemoAppWithRepositoryAutofac.Common\DemoAppWithRepositoryAutofac.Common.csproj", "{2FC41EC3-EEBB-4A59-9896-552779971C1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B1E73F-97DB-4564-B1C4-D811D517428D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC41EC3-EEBB-4A59-9896-552779971C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC41EC3-EEBB-4A59-9896-552779971C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC41EC3-EEBB-4A59-9896-552779971C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC41EC3-EEBB-4A59-9896-552779971C1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
