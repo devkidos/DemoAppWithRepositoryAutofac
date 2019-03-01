@@ -14,14 +14,12 @@ using System.Threading.Tasks;
 namespace DemoAppWithRepositoryAutofac.Services.Services
 {
     public class CountryService : ICountryService
-    {
-        private IDataRepository<Country>  countryRepository;
-        private ICountryRepository  ccountryRepository;
+    { 
+        private ICountryRepository  countryRepository;
 
-        public CountryService(IDataRepository<Country> countryRepository, ICountryRepository ccountryRepository)
-        {
+        public CountryService(ICountryRepository countryRepository)
+        { 
             this.countryRepository = countryRepository;
-            this.ccountryRepository = ccountryRepository;
         }
 
         public void Delete(VMCountry entity)
@@ -45,13 +43,20 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<VMCountry> GetCountries(ApiRequest apiRequest)
-        { 
+        public Response<VMCountry> GetCountries(ApiRequest apiRequest)
+        {
+            int maxRows = 10;
+            Response<VMCountry> response = new Response<VMCountry>();
             // var data =  ccountryRepository.Search();  //Custom method
             var data =  countryRepository.RetrieveAllRecordsAsync(apiRequest);  //Generic Method 
 
             var datas = AutoMapper.Mapper.Map<IEnumerable<Country>, IEnumerable<VMCountry>>(data);
-            return datas;
+            response.Datas = datas.OrderBy(o => o.CountryName).Skip((apiRequest.PageNumber-1) * apiRequest.PageSize).Take(apiRequest.PageSize).ToList(); ;
+            double pageCount = (double)((decimal)datas.Count() / Convert.ToDecimal(maxRows));
+            response.PageCount = (int)Math.Ceiling(pageCount);
+
+            response.CurrentPage = apiRequest.PageNumber;
+            return response;
         }
 
         public Country GetCountry(Guid id)

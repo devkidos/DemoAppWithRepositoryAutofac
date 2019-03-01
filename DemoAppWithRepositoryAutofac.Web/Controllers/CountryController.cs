@@ -10,6 +10,7 @@ using System.Web.Script.Serialization;
 using DemoAppWithRepositoryAutofac.Common;
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
+using DemoAppWithRepositoryAutofac.ViewModel.Response;
 using Newtonsoft.Json;
 
 namespace DemoAppWithRepositoryAutofac.Web.Controllers
@@ -25,7 +26,7 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
         public ActionResult Index()
         {
             dynamic dynamicObject = new ExpandoObject();
-            dynamicObject.PageNumber = 0;
+            dynamicObject.PageNumber = 1;
             dynamicObject.PageSize = 10;
             dynamicObject.Search = "";
             var data = SearchCountries(dynamicObject);
@@ -33,9 +34,21 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
             return View(data);
         }
 
-        private List<VMCountry> SearchCountries(ExpandoObject dynamicObject)
+        [HttpPost]
+        public ActionResult Index(int currentPageIndex)
+        {
+            dynamic dynamicObject = new ExpandoObject();
+            dynamicObject.PageNumber = currentPageIndex;
+            dynamicObject.PageSize = 10;
+            dynamicObject.Search = "";
+            var data = SearchCountries(dynamicObject);
+            ViewBag.currentPage = currentPageIndex;
+            return View(data);
+        }
+
+        private Response<VMCountry> SearchCountries(ExpandoObject dynamicObject)
         { 
-            var rersult = httpClientService.Post<List<VMCountry>>("countries", dynamicObject,  null);
+            var rersult = httpClientService.Post<Response<VMCountry>>("countries", dynamicObject,  null);
              
             return rersult;
         }

@@ -13,5 +13,11 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(int currentPageIndex)
+        {
+             
+            return View();
+        }
     }
 }

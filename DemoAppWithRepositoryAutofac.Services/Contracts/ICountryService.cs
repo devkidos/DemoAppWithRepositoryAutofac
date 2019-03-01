@@ -1,6 +1,7 @@
 ﻿using DemoAppWithRepositoryAutofac.Core;
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
+using DemoAppWithRepositoryAutofac.ViewModel.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace DemoAppWithRepositoryAutofac.Services.Contracts
 {
     public interface ICountryService : IService<VMCountry>
     {
-        IEnumerable<VMCountry> GetCountries(ApiRequest apiRequest);
+        Response<VMCountry> GetCountries(ApiRequest apiRequest);
     }
 }

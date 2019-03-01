@@ -16,3 +16,7 @@ textarea {
     max-width: 280px;
 }
 
+.currentPage {
+    background-color: #3C8DBC !important;
+    color: #fff !important;
+}

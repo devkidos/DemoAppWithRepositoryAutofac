@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DemoAppWithRepositoryAutofac.ViewModel.VMCountry>
+﻿@model DemoAppWithRepositoryAutofac.ViewModel.Response.Response<DemoAppWithRepositoryAutofac.ViewModel.VMCountry>
 @{
     ViewBag.Title = "Index";
 }
@@ -10,28 +10,90 @@
     </div>
 
     <!-- /.box-header -->
-    <div class="box-body"> 
-        <table id="myTable" class="table display responsive nowrap" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th scope="col">CountryCode</th>
-                    <th scope="col">CountryName</th>
-                    <th scope="col">CountryName</th>
-                    <th scope="col">CountryName</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+    <div class="box-body">
+
+        @using (Html.BeginForm("Index", "Country", FormMethod.Post))
+        {
+            <table id="myTable" class="table display responsive nowrap" cellspacing="0" width="100%">
+                <thead>
                     <tr>
-                        <th scope="row">@item.CountryCode</th>
-                        <td>@item.CountryName</td>
-                        <td>@item.CountryId</td>
-                        <td>@item.CountryPhoneCode</td>
+                        <th scope="col">CountryCode</th>
+                        <th scope="col">CountryName</th>
+                        <th scope="col">CountryName</th>
+                        <th scope="col">CountryName</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Datas)
+                    {
+                        <tr>
+                            <th scope="row">@item.CountryCode</th>
+                            <td>@item.CountryName</td>
+                            <td>@item.CountryId</td>
+                            <td>@item.CountryPhoneCode</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    <li>
+                        @if (1 == @ViewBag.currentPage)
+                        {
+                        <a>«</a>
+                        }
+                        else
+                        {
+                            <a href="javascript:PrevNextClick(-1);">«</a>
+                        } 
+                    </li>
+                    @for (int i = 1; i <= Model.PageCount; i++)
+                    {
+                        if (i != Model.CurrentPage)
+                        {
+                            <li><a href="javascript:PagerClick(@i);">@i</a></li>
+                        }
+                        else
+                        {
+                            <span></span>
+                            <li><a href="#" class="currentPage">@i</a></li>
+                        }
+                    }
+                            <li>
+                                @if (Model.PageCount == @ViewBag.currentPage)
+                                {
+                                    <a>»</a>
+                                }
+                                else
+                                {
+                                    <a href="javascript:PrevNextClick(1);">»</a>
+                                }
+                            </li>
+                </ul>
+            </div>
+            <input type="hidden" id="hfCurrentPageIndex" name="currentPageIndex" value="@ViewBag.currentPage" />
+        }
+
+        <script type="text/javascript">
+            function PagerClick(index) {
+                document.getElementById("hfCurrentPageIndex").value = index;
+                document.forms[1].submit();
+            }
+            function PrevNextClick(index) {
+                var newindex = 1;
+                //alert(newindex)
+                //alert(document.getElementById("hfCurrentPageIndex").value)
+                if (document.getElementById("hfCurrentPageIndex").value == "") {
+                    newindex = 2;
                 }
-            </tbody>
-        </table>
+                else {
+                    newindex = Number(document.getElementById("hfCurrentPageIndex").value) + index
+                }
+                 
+                    document.getElementById("hfCurrentPageIndex").value = newindex;
+                document.forms[1].submit();
+            }
+        </script>
     </div>
 
 </div>
