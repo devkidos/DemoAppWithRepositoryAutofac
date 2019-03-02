@@ -49,5 +49,10 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public IQueryable<User> GetQuery()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

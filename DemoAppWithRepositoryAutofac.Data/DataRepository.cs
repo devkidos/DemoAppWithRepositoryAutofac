@@ -10,35 +10,38 @@ using System.Threading.Tasks;
 
 namespace DemoAppWithRepositoryAutofac.Data
 {
-    public class DataRepository<TEntity> : IDataRepository<TEntity> where TEntity : BaseEntity
+    public class DataRepository<TEntity> : IDataRepository<TEntity> where TEntity : class
     {
         private readonly IDbContext _context;
-        private IDbSet<TEntity> _entities;
+        private IDbSet<TEntity> _dbset;
+
+        //public IQueryable<TEntity> Table => throw new NotImplementedException();
 
         //public DataRepository(IDbContext context)
         //{
         //    this._context = context;
         //}
 
-        ////public virtual IQueryable<TEntity> Table
-        ////{
-        ////    get
-        ////    {
-        ////        return this.Entities;
-        ////    }
-        ////}
+        //public virtual IQueryable<TEntity> Table
+        //{
+        //    get
+        //    {
+        //        return this._entities;
+        //    }
+        //}
 
-        ////private IDbSet<TEntity> Entities
-        ////{
-        ////    get
-        ////    {
-        ////        if (_entities == null)
-        ////        {
-        ////            _entities = _context.Set<TEntity>();
-        ////        }
-        ////        return _entities;
-        ////    }
-        ////}
+        //private IDbSet<TEntity> Entities
+        //{
+        //    get
+        //    {
+        //        if (_entities == null)
+        //        {
+        //            _entities = _context.Set<TEntity>();
+        //            _dbset = context.Set<T>();
+        //        }
+        //        return _entities;
+        //    }
+        //}
         //public void Delete(TEntity entity)
         //{
 
@@ -142,6 +145,11 @@ namespace DemoAppWithRepositoryAutofac.Data
         }
 
         public TEntity GetById(object id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<TEntity> GetQuery()
         {
             throw new NotImplementedException();
         }
