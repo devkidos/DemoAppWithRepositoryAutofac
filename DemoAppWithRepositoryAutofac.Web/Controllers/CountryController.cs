@@ -30,7 +30,7 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
             dynamicObject.PageSize = 10;
             dynamicObject.Search = "";
             var data = SearchCountries(dynamicObject);
-
+            ViewBag.currentPage = 1;
             return View(data);
         }
 
