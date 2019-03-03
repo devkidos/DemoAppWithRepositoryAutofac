@@ -6,11 +6,11 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
-using DemoAppWithRepositoryAutofac.Common;
+using System.Web.Script.Serialization; 
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using DemoAppWithRepositoryAutofac.ViewModel.Response;
+using DevKido.Utilities.HtttpServices;
 using Newtonsoft.Json;
 
 namespace DemoAppWithRepositoryAutofac.Web.Controllers
@@ -32,6 +32,11 @@ namespace DemoAppWithRepositoryAutofac.Web.Controllers
             var data = SearchCountries(dynamicObject);
             ViewBag.currentPage = 1;
             return View(data);
+        }
+
+        public ActionResult DataTable()
+        {
+            return View();
         }
 
         [HttpPost]

@@ -49,9 +49,9 @@ namespace DemoAppWithRepositoryAutofac.Data.Repositories
 
         public IEnumerable<Country> RetrieveAllRecordsAsync(ApiRequest apiRequest)
         {
-            return this.dataContext.Country;
-               // .Where(c=>c.CountryName.Contains(apiRequest.Search) || (apiRequest.Search == "" || apiRequest.Search == null))
-               //.OrderBy(o => o.CountryName).ToList();
+            return this.dataContext.Country
+                .Where(c=>c.CountryName.Contains(apiRequest.Search) || (apiRequest.Search == "" || apiRequest.Search == null))
+               .OrderBy(o => o.CountryName).ToList();
            // .OrderBy(o => o.CountryName).Skip(apiRequest.PageNumber * apiRequest.PageSize).Take(apiRequest.PageSize).ToList();
         }
 

@@ -12,7 +12,19 @@
     <link href="~/Content/css/skin-blue.min.css" rel="stylesheet" />
     <link href="~/Content/plugins/iCheck/flat/blue.css" rel="stylesheet" />
     <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <!-- DataTables -->
+    <link href="~/Content/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/datatables/responsive.dataTables.min.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/Content/plugins/select2/select2.min.css">
+    <link href="~/Content/plugins/Toastr/toastr.css" rel="stylesheet" />
+    <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <script src="~/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/Content/plugins/jQueryUI/jquery-ui.min.js"></script> 
+    <script src="~/Content/plugins/jQuery/jquery.validate.min.js"></script>
+    <script src="~/Content/plugins/jQuery/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -235,12 +247,12 @@
         </aside>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-               
+
             <!-- Main content -->
-                <section class="content">
-                    @RenderBody()
-                </section>
-       
+            <section class="content">
+                @RenderBody()
+            </section>
+
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -253,11 +265,14 @@
             <!-- Default to the left -->
             <strong>Copyright &copy;  @DateTime.Now.Year <a href="#">Company</a>.</strong> All rights reserved.
         </footer>
-         
+
     </div>
- 
-    <script src="~/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="~/Content/plugins/jQueryUI/jquery-ui.min.js"></script>
+
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Content/plugins/select2/select2.full.min.js"></script>
+    <script src="~/Content/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/plugins/datatables/dataTables.responsive.min.js"></script>
     <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Content/plugins/datepicker/bootstrap-datepicker.js"></script>
     <script src="~/Content/plugins/slimScroll/jquery.slimscroll.min.js"></script>

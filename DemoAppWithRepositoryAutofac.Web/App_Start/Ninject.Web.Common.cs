@@ -4,8 +4,8 @@
 namespace DemoAppWithRepositoryAutofac.Web.App_Start
 {
     using System;
-    using System.Web;
-    using DemoAppWithRepositoryAutofac.Common;
+    using System.Web; 
+    using DevKido.Utilities.HtttpServices;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;

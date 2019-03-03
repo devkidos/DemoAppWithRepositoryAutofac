@@ -5,8 +5,11 @@ using DemoAppWithRepositoryAutofac.Services.Contracts;
 using DemoAppWithRepositoryAutofac.ViewModel;
 using DemoAppWithRepositoryAutofac.ViewModel.Request;
 using DemoAppWithRepositoryAutofac.ViewModel.Response;
+using DevKido.Utilities;
+using DevKido.Utilities.DataTable;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,6 +66,47 @@ namespace DemoAppWithRepositoryAutofac.Services.Services
         {
             // return countryRepository.GetById(id);
             return new Country();
+        }
+
+        public ResultResponse<DTResult<VMCountry>> GetCountryList(DTParameters param)
+        { 
+            var exceptions = new Dictionary<string, string>();
+            DTResult<VMCountry> Data = new DTResult<VMCountry>();
+
+            try
+            {
+                var SortColumn = StringExtension.FirstCharToUpper(param.SortOrder);
+                param.SortOrder = SortColumn;
+                var queryData = countryRepository.GetQuery()
+                    .Where(a => a.Status == "Active" && (a.CountryName.Contains(param.Search.Value) || param.Search.Value == null));
+
+                //var queryData = db.Countries.AsQueryable().Where(a => a.Status == "Active" && (a.CountryName.Contains(param.Search.Value) || param.Search.Value == null));
+                var data = DataTableFiltering<Country>.GetResult(param, queryData);
+
+                var Datas = AutoMapper.Mapper.Map<List<Country>, List<VMCountry>>(data.data);
+                Data.data = Datas;
+                Data.draw = data.draw;
+                Data.recordsTotal = data.recordsTotal;
+
+
+            }
+            catch (SqlException sqlException)
+            {
+                exceptions.Add("SqlException", sqlException.Message);
+            }
+            catch (TaskCanceledException taskCanceledException)
+            {
+                exceptions.Add("TaskCanceledException", taskCanceledException.Message);
+            }
+            catch (Exception ex)
+            {
+                exceptions.Add("Exception", ex.Message);
+            }
+            return new ResultResponse<DTResult<VMCountry>>
+            {
+                Exceptions = exceptions,
+                Datas = Data
+            };
         }
 
         public Response<VMCountry> Insert(VMCountry entity)

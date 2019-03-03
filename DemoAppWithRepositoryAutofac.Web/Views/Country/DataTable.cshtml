@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "DataTable";
+} 
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Country </h3>
+        </div>
+
+        <!-- /.box-header -->
+        <div class="box-body">
+            <p>
+                @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-primary" })
+            </p>
+            <table id="myTable" class="display responsive nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Country Name</th>
+                        <th>Country Code</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+</section>
+<script src="~/Scripts/Custom/Country.js"></script>
+
+
+
+
+
